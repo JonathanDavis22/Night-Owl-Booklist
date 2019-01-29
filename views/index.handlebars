@@ -1,0 +1,64 @@
+<br>
+<br>
+
+<div class="container">
+
+    <div class="jumbotron">
+        <h1>Make a Booklist</h1>
+        <p>Make a booklist, read through it.</p>
+        <br>
+        <h2>Add a book.</h2>
+        <panel>
+            <form class="create-form">
+                <div class="form-group">
+                    <label for="newTitle">New Title:</label>
+                    <input type="text" id="newTitle" name="newTitle">
+                    <label for="newWriter">Author:</label>
+                    <input type="text" id="newWriter" name="newWriter">
+                    <button type="submit" class="btn btn-success" id="addbook"><span class="fa fa-thumbs-up"></span></button>
+                </div>
+            </form>
+        </panel>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="panel panel-default">
+                <div class="panel-heading" id="lefthead"><strong>Unread Books</strong></div>
+                <div class="panel-body">
+                    <ul>
+                        {{#each booksData}}
+                        {{#unless read}}
+                        <span><strong> {{this.id}} - {{this.book_name}} </strong></span>
+                        <span><strong> {{this.id}} - {{this.author_name}} </strong></span>
+                        <button type="button" class="readbook btn btn-warning" id="readButton" data-id="{{this.id}}"
+                            data-newRead="{{read}}"><span class="fa fa-book"></span></button>
+                        <hr>
+                        {{/unless}}
+                        {{/each}}
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6">
+            <div class="panel panel-default">
+                <div class="panel-heading" id="righthead"><strong>Read Books</strong></div>
+                <div class="panel-body">
+                    <ul>
+                        {{#each booksData}}
+                        {{#if read}}
+                        <span><strong> {{this.id}} - {{this.book_name}} </strong></span>
+                        <span><strong> {{this.id}} - {{this.author_name}} </strong></span>
+                        <button type="button" class="trash btn btn-danger" id="trashbutton" data-id="{{this.id}}"
+                            data-newRead="{{read}}"><span class="fa fa-trash"></span></button>
+                        <hr>
+                        {{/if}}
+                        {{/each}}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
