@@ -16,15 +16,22 @@ let orm = {
                 console.log(result);
             })
     },
-    updateOne: function (table, book_name, author) {
-        let queryString = "UPDATE ?? SET have_read = NOT have_read WHERE book_name = ? AND author = ?"
-        connection.query(queryString, [table, book_name, author],
+    updateOne: function (table, id) {
+        let queryString = "UPDATE ?? SET have_read = NOT have_read WHERE id = ?";
+        connection.query(queryString, [table, id],
             function (err, result) {
                 if (err) throw err;
                 console.log(result);
             })
     },
-
+    deleteOne: function (table, id) {
+        let queryString = "DELETE FROM ?? WHERE id = ?";
+        connection.query(queryString, [table, id],
+        function (err, result) {
+            if (err) throw err;
+            console.log(result);
+        })
+    }
 }
 
 module.exports = orm;

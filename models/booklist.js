@@ -8,12 +8,15 @@ let books = {
         });
     },
     // Add a new book/author to the db.
-    insertOne: function(newTitle, newWriter) {
+    newBook: function(newTitle, newWriter) {
         orm.insertOne("booklist", newTitle, newWriter)
     },
     // Change the 'read' status
-    updateOne: function(book_name, author) {
-        orm.updateOne("booklist", book_name, author)
+    have_read: function(id) {
+        orm.updateOne("booklist", id)
+    },
+    deleteBook: function(id) {
+        orm.deleteOne("booklist", id)
     }
 };
 

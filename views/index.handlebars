@@ -28,11 +28,11 @@
                 <div class="panel-body">
                     <ul>
                         {{#each booksData}}
-                        {{#unless read}}
+                        {{#unless this.have_read}}
                         <span><strong> {{this.id}} - {{this.book_name}} </strong></span>
                         <span><strong> {{this.id}} - {{this.author_name}} </strong></span>
                         <button type="button" class="readbook btn btn-warning" id="readButton" data-id="{{this.id}}"
-                            data-newRead="{{read}}"><span class="fa fa-book"></span></button>
+                            data-newRead="{{have_read}}"><span class="fa fa-book"></span></button>
                         <hr>
                         {{/unless}}
                         {{/each}}
@@ -47,11 +47,11 @@
                 <div class="panel-body">
                     <ul>
                         {{#each booksData}}
-                        {{#if read}}
+                        {{#if this.have_read}}
                         <span><strong> {{this.id}} - {{this.book_name}} </strong></span>
                         <span><strong> {{this.id}} - {{this.author_name}} </strong></span>
                         <button type="button" class="trash btn btn-danger" id="trashbutton" data-id="{{this.id}}"
-                            data-newRead="{{read}}"><span class="fa fa-trash"></span></button>
+                            data-newRead="{{have_read}}"><span class="fa fa-trash"></span></button>
                         <hr>
                         {{/if}}
                         {{/each}}
