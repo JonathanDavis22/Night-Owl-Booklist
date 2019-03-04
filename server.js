@@ -13,6 +13,9 @@ app.use(express.static(__dirname + "/public"));
 // // Parse application/JSON
 // app.use(bodyParser.json());
 
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
 // Set handlebars
 const exphbs = require("express-handlebars");
 
@@ -20,7 +23,7 @@ app.engine("handlebars", exphbs ({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 // Import routes annd give the server access to them.
-let routes = require("./controllers/booklist_controller.js");
+let routes = require("./controllers/controller.js");
 app.use(routes);
 
 app.listen(PORT, function() {

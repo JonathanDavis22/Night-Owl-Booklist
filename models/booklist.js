@@ -3,9 +3,7 @@ let orm = require("../config/orm.js");
 let books = {
     // Display the booklist
     selectAll: function(cb) {
-        orm.selectAll("booklist", function(res) {
-            cb(res);
-        });
+        orm.selectAll("booklist", cb);
     },
     // Add a new book/author to the db.
     newBook: function(newTitle, newWriter) {

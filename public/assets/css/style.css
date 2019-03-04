@@ -1,0 +1,42 @@
+.readButton {
+    background-color:#4700b3;
+    margin-left: 5px;
+}
+
+.fa-book {
+    color: #ffffe6;
+}
+
+.mainTitle {
+    color: #4700b3;
+}
+
+.trashButton {
+    margin-left: 5px;
+}
+
+#writerLabel {
+    margin-left: 10px;
+}
+
+#newTitle, #newWriter {
+    width: 250px;
+}
+
+@media only screen and (min-width: 688px) {
+    #newTitle, #newWriter {
+        width: 180px;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    #newTitle, #newWriter {
+        width: 200px;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    #newTitle, #newWriter {
+        width: 250px;
+    }
+}

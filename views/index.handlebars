@@ -4,18 +4,20 @@
 <div class="container">
 
     <div class="jumbotron">
-        <h1>Make a Booklist</h1>
-        <p>Make a booklist, read through it.</p>
+        <h1 class="mainTitle">
+            <i class='fas fa-moon' style='font-size:44px; color:#141a4f;'><i class='glyphicon glyphicon-book' style='font-size:48px; color:#141a4f;'></i></i>
+            Night Owl Booklist</h1>
+        <h2>Make a booklist, read through it.</h2>
         <br>
-        <h2>Add a book.</h2>
+        <h3>Add a book:</h3>
         <panel>
-            <form class="create-form">
+            <form class="create-form" action="/api/books" method="POST">
                 <div class="form-group">
                     <label for="newTitle">New Title:</label>
                     <input type="text" id="newTitle" name="newTitle">
-                    <label for="newWriter">Author:</label>
+                    <label for="newWriter" id="writerLabel">Author:</label>
                     <input type="text" id="newWriter" name="newWriter">
-                    <button type="submit" class="btn btn-success" id="addbook"><span class="fa fa-thumbs-up"></span></button>
+                    <button type="submit" class="btn btn-success" id="addBook"><span class="fa fa-thumbs-up"></span></button>
                 </div>
             </form>
         </panel>
@@ -26,14 +28,16 @@
             <div class="panel panel-default">
                 <div class="panel-heading" id="lefthead"><strong>Unread Books</strong></div>
                 <div class="panel-body">
-                    <ul>
+                    <ul id="unreadBooks">
                         {{#each booksData}}
                         {{#unless this.have_read}}
-                        <span><strong> {{this.id}} - {{this.book_name}} </strong></span>
-                        <span><strong> {{this.id}} - {{this.author_name}} </strong></span>
-                        <button type="button" class="readbook btn btn-warning" id="readButton" data-id="{{this.id}}"
+                        <li>
+                        <span> {{this.book_name}} </span>
+                        <span> By: {{this.author}} </span>
+                        <button type="button" class="btn readButton" data-id="{{this.id}}"
                             data-newRead="{{have_read}}"><span class="fa fa-book"></span></button>
                         <hr>
+                        </li>
                         {{/unless}}
                         {{/each}}
                     </ul>
@@ -45,14 +49,16 @@
             <div class="panel panel-default">
                 <div class="panel-heading" id="righthead"><strong>Read Books</strong></div>
                 <div class="panel-body">
-                    <ul>
+                    <ul id="readBooks">
                         {{#each booksData}}
                         {{#if this.have_read}}
-                        <span><strong> {{this.id}} - {{this.book_name}} </strong></span>
-                        <span><strong> {{this.id}} - {{this.author_name}} </strong></span>
-                        <button type="button" class="trash btn btn-danger" id="trashbutton" data-id="{{this.id}}"
+                        <li>
+                        <span> {{this.book_name}} </span>
+                        <span> By: {{this.author}} </span>
+                        <button type="button" class="btn btn-danger trashButton" data-id="{{this.id}}"
                             data-newRead="{{have_read}}"><span class="fa fa-trash"></span></button>
                         <hr>
+                        </li>
                         {{/if}}
                         {{/each}}
                     </ul>

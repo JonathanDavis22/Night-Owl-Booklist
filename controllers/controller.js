@@ -4,17 +4,19 @@ let books = require("../models/booklist.js");
 let router = express.Router();
 
 router.get("/", function (req, res) {
-    books.selectAll(function (booksData) {
-        console.log(booksData);
-        res.render("index", {
-            booksData: booksData
-        });
+    books.selectAll(function (err, data) {
+        let booksObject = {
+            booksData: data
+        };
+        console.log('booksData is', booksObject);
+        res.render("index", booksObject);
     });
 });
 
 // Add a new book to the database
 router.post("/api/books", function (req, res) {
     books.newBook(req.body.newTitle, req.body.newWriter)
+    res.redirect("/");
 });
 
 // Set read status to true
