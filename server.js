@@ -7,12 +7,6 @@ const PORT = process.env.PORT || 666;
 // Serve static content from 'public' directory
 app.use(express.static(__dirname + "/public"));
 
-// // Parse application
-// app.use(bodyParser.urlenconded({ extended: true}));
-
-// // Parse application/JSON
-// app.use(bodyParser.json());
-
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
