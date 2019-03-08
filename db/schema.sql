@@ -1,7 +1,7 @@
-DROP DATABASE IF EXISTS booklist_db;
-CREATE DATABASE booklist_db;
+DROP DATABASE IF EXISTS vlyql6y8937cfwbl;
+CREATE DATABASE vlyql6y8937cfwbl;
 
-USE booklist_db;
+USE vlyql6y8937cfwbl;
 
 SELECT * FROM booklist;
 
@@ -12,4 +12,4 @@ CREATE TABLE booklist (
     author VARCHAR(255) NOT NULL,
     have_read BOOLEAN DEFAULT FALSE,
 	PRIMARY KEY (id)
-); 
+);
