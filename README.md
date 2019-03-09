@@ -4,7 +4,7 @@ A Node/JavaScript-built booklist in the MVC architectural pattern. Includes cust
 
 ## Getting Started
 
-Visit https://radiant-retreat-48932.herokuapp.com/.
+Visit https://night-owl-booklist.herokuapp.com/.
 
 ### Use
 
